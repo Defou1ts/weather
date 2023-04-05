@@ -36,12 +36,13 @@
 		"webpack-dev-server": "^4.13.2"
 	},
 	"dependencies": {
+		"@reduxjs/toolkit": "^1.9.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-redux": "^8.0.5",
-		"@reduxjs/toolkit": "^1.9.3",
 		"redux-deep-persist": "^1.0.7",
-		"redux-persist": "^6.0.0"
+		"redux-persist": "^6.0.0",
+		"redux-saga": "^1.2.3"
 	},
 	"scripts": {
 		"watch:dev": "webpack serve --mode development --open --hot",
