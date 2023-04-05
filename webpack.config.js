@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const path = require('path');
 
@@ -26,6 +27,7 @@ module.exports = {
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 			'@assets': path.resolve(__dirname, 'src/assets'),
+			'@api': path.resolve(__dirname, 'src/api'),
 			'@types': path.resolve(__dirname, 'src/types'),
 			'@components': path.resolve(__dirname, 'src/components'),
 			'@constants': path.resolve(__dirname, 'src/constants'),
@@ -65,6 +67,7 @@ module.exports = {
 
 	plugins: [
 		new CleanWebpackPlugin(),
+		new Dotenv(),
 		new HtmlWebpackPlugin(
 			Object.assign(
 				{},

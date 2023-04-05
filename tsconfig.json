@@ -19,6 +19,7 @@
 		"paths": {
 			"@": ["./src/*"],
 			"@assets": ["./assets"],
+			"@api": ["./api"],
 			"@types": ["./types"],
 			"@components": ["./components"],
 			"@constants": ["./constants"],
