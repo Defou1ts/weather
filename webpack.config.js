@@ -33,8 +33,6 @@ module.exports = {
 			'@store': path.resolve(__dirname, 'src/store'),
 			'@utils': path.resolve(__dirname, 'src/utils'),
 			'@hooks': path.resolve(__dirname, 'src/hooks'),
-			'@styles': path.resolve(__dirname, 'src/assets/styles'),
-			'@images': path.resolve(__dirname, 'src/assets/images'),
 			'@interfaces': path.resolve(__dirname, 'src/interfaces'),
 			'@theme': path.resolve(__dirname, 'src/theme'),
 		},

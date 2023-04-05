@@ -17,7 +17,7 @@
 		"jsx": "react-jsx",
 		"baseUrl": "./src",
 		"paths": {
-			"@/*": ["./src/*"],
+			"@": ["./src/*"],
 			"@assets": ["./assets"],
 			"@types": ["./types"],
 			"@components": ["./components"],
@@ -26,8 +26,6 @@
 			"@store": ["./store"],
 			"@utils": ["./utils"],
 			"@hooks": ["./hooks"],
-			"@styles": ["./assets/styles"],
-			"@images": ["./assets/images"],
 			"@interfaces": ["./interfaces"],
 			"@theme": ["./theme"]
 		}
