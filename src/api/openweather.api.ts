@@ -6,13 +6,13 @@ import type { AxiosInstance } from 'axios';
 
 const token = process.env.REACT_APP_OPENWEATHER_API_KEY as string;
 
-const instanceAxios: AxiosInstance = axios.create({
+const openWeatherApiInstance: AxiosInstance = axios.create({
 	baseURL: `https://api.openweathermap.org/data/2.5`,
 });
 
 export const openWeatherApi = {
 	async getTodayWeather(city: string) {
-		const { data } = await instanceAxios.get<TodayWeather>('/weather', {
+		const { data } = await openWeatherApiInstance.get<TodayWeather>('/weather', {
 			params: {
 				q: city,
 				appid: token,

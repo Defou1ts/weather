@@ -6,7 +6,7 @@ import type { AxiosInstance } from 'axios';
 
 const apiHost = 'api.open-meteo.com';
 
-const weatherApiInstance: AxiosInstance = axios.create({
+const openMeteoApiInstance: AxiosInstance = axios.create({
 	baseURL: `https://${apiHost}/v1/forecast`,
 	params: {
 		timezone: 'Europe/Moscow',
@@ -16,7 +16,7 @@ const weatherApiInstance: AxiosInstance = axios.create({
 
 export const openMeteoApi = {
 	async getHourlyWeather(longitude: string, latitude: string) {
-		const { data } = await weatherApiInstance.get<HourlyWeather>('', {
+		const { data } = await openMeteoApiInstance.get<HourlyWeather>('', {
 			params: {
 				longitude,
 				latitude,
@@ -29,7 +29,7 @@ export const openMeteoApi = {
 	},
 
 	async getDailyWeather(longitude: string, latitude: string) {
-		const { data } = await weatherApiInstance.get<DailyWeather>('', {
+		const { data } = await openMeteoApiInstance.get<DailyWeather>('', {
 			params: {
 				longitude,
 				latitude,
