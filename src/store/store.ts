@@ -5,10 +5,13 @@ import { getPersistConfig } from 'redux-deep-persist';
 import createSagaMiddleware from 'redux-saga';
 
 import { rootSaga } from './sagas';
+import todayWeatherReducer from './slices/todayweather.slice';
 
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+	todayWeather: todayWeatherReducer,
+});
 
 const persistConfig = getPersistConfig({
 	key: 'root',
@@ -29,7 +32,7 @@ export const store = configureStore({
 				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
 			},
 			sagaMiddleware,
-		}),
+		}).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(rootSaga);

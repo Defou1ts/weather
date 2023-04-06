@@ -1,9 +1,10 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { fetchTodayWeather, setTodayLoadingStatus, setTodayWeather } from 'store/slices/todayweather.slice';
 
 import { LOADING_STATUS } from '@constants';
 import { openWeatherApi } from '@api';
 import type { Coord, TodayWeather } from '@interfaces';
+
+import { fetchTodayWeather, setTodayLoadingStatus, setTodayWeather } from '../slices/todayweather.slice';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 

@@ -1,49 +1,29 @@
-import { useDeferredValue, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { openMeteoApi } from '@api';
-import type { CitySearchResult, DailyWeather } from '@interfaces';
+import {
+	fetchTodayWeather,
+	selectTodayWeather,
+	selectTodayWeatherLoadingStatus,
+	useAppDispatch,
+	useAppSelector,
+} from '@store';
 
 export const App = (): JSX.Element | null => {
-	const [hourlyWeather, setHourlyWeather] = useState<DailyWeather | null>(null);
-	const [cities, setCities] = useState<CitySearchResult | null>(null);
-	const [value, setValue] = useState<string>('');
+	const todayWeather = useAppSelector(selectTodayWeather);
+	const todayWeatherLoadingStatus = useAppSelector(selectTodayWeatherLoadingStatus);
 
-	const valueForFetch = useDeferredValue(value);
-
-	const { getDailyWeather, searchCityByName } = openMeteoApi;
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		void getDailyWeather('55.1904', '30.2049').then((data) => {
-			setHourlyWeather(data);
-		});
+		dispatch(
+			fetchTodayWeather({
+				lon: 55,
+				lat: 30,
+			})
+		);
 	}, []);
 
-	useEffect(() => {
-		console.log(hourlyWeather);
-	}, [hourlyWeather]);
+	console.log(todayWeather, todayWeatherLoadingStatus);
 
-	useEffect(() => {
-		void searchCityByName(valueForFetch).then((data) => {
-			setCities(data);
-		});
-	}, [valueForFetch]);
-
-	return (
-		<div>
-			<input
-				type="text"
-				onChange={(e) => {
-					setValue(e.target.value);
-				}}
-				value={value}
-			/>
-			{cities?.results?.map((result) => (
-				<div key={result.id}>
-					<p>
-						{result.name}, {result.country}, {result.longitude}, {result.latitude}
-					</p>
-				</div>
-			))}
-		</div>
-	);
+	return <div></div>;
 };
