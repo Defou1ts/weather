@@ -15,7 +15,7 @@ const openMeteoApiInstance: AxiosInstance = axios.create({
 });
 
 export const openMeteoApi = {
-	async getHourlyWeather(longitude: string, latitude: string) {
+	async getHourlyWeather(longitude: number, latitude: number) {
 		const { data } = await openMeteoApiInstance.get<HourlyWeather>('', {
 			params: {
 				longitude,
@@ -28,7 +28,7 @@ export const openMeteoApi = {
 		return data;
 	},
 
-	async getDailyWeather(longitude: string, latitude: string) {
+	async getDailyWeather(longitude: number, latitude: number) {
 		const { data } = await openMeteoApiInstance.get<DailyWeather>('', {
 			params: {
 				longitude,

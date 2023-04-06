@@ -5,18 +5,18 @@ import type { Coord, TodayWeather } from '@interfaces';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface WeatherState {
+export interface TodayWeatherState {
 	weather: TodayWeather | null;
 	loadingStatus: LOADING_STATUS;
 }
 
-const initialState: WeatherState = {
+const initialState: TodayWeatherState = {
 	weather: null,
 	loadingStatus: LOADING_STATUS.IDLE,
 };
 
 export const todayWeatherSlice = createSlice({
-	name: 'weather',
+	name: 'todayWeather',
 	initialState,
 	reducers: {
 		fetchTodayWeather: (state, action: PayloadAction<Coord>) => {},

@@ -6,11 +6,13 @@ import createSagaMiddleware from 'redux-saga';
 
 import { rootSaga } from './sagas';
 import todayWeatherReducer from './slices/todayweather.slice';
+import hourlyWeatherReducer from './slices/hourlyweather.slice';
 
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
 	todayWeather: todayWeatherReducer,
+	hourlyWeather: hourlyWeatherReducer,
 });
 
 const persistConfig = getPersistConfig({
