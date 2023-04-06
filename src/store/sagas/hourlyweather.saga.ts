@@ -1,9 +1,10 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { fetchHourlyWeather, setHourlyLoadingStatus, setHourlyWeather } from 'store/slices/hourlyweather.slice';
 
 import { LOADING_STATUS } from '@constants';
 import { openMeteoApi } from '@api';
 import type { Coord, HourlyWeather } from '@interfaces';
+
+import { fetchHourlyWeather, setHourlyLoadingStatus, setHourlyWeather } from '../slices/hourlyweather.slice';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 
