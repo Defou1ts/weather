@@ -1,1 +1,2 @@
-export * from './loadingStatus'
+export * from './loadingStatus';
+export * from './weatherStatuses';
