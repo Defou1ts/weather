@@ -1,9 +1,9 @@
 export interface CitySearchResult {
-	results?: Result[];
+	results?: CityResult[];
 	generationtime_ms: number;
 }
 
-interface Result {
+interface CityResult {
 	id: number;
 	name: string;
 	latitude: number;
