@@ -1,4 +1,4 @@
-import type { colors, borderRadius, width, height, padding, fontSize, gaps, margin, breakpoints } from '@theme';
+import type { colors, borderRadius, width, height, padding, fontSize, gaps, margin, breakpoints, blur } from '@theme';
 
 export interface Theme {
 	colors: typeof colors;
@@ -10,4 +10,5 @@ export interface Theme {
 	gaps: typeof gaps;
 	margin: typeof margin;
 	breakpoints: typeof breakpoints;
+	blur: typeof blur;
 }

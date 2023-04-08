@@ -1,3 +1,4 @@
+export { default as BackgroundImage } from './background.jpg';
 export { default as brokenCloudsIcon } from './broken-clouds.png';
 export { default as clearSkyDayIcon } from './clear-sky-day.png';
 export { default as clearSkyNightIcon } from './clear-sky-night.png';
