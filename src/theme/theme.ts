@@ -8,8 +8,8 @@ export const colors = {
 
 export const borderRadius = [5, 10, 20] as const;
 export const width = [139, 1110, 100] as const;
-export const height = [44, 674, 100] as const;
-export const padding = [50, 70] as const;
+export const height = [44, 674, 100, 38] as const;
+export const padding = [50, 70, 15] as const;
 export const fontSize = [17, 20, 23, 25, 30, 41] as const;
 export const gaps = [28, 36, 39, 48, 58] as const;
 export const margin = [20, 250, 150] as const;
