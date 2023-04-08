@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { LOADING_STATUS } from '@constants';
 import type { CitySearchResult } from '@interfaces';
@@ -20,5 +20,5 @@ function* fetchCityByNameWorker(action: PayloadAction<string>) {
 }
 
 export function* cityWatcher() {
-	yield takeEvery(fetchCityByName.type, fetchCityByNameWorker);
+	yield takeLatest(fetchCityByName.type, fetchCityByNameWorker);
 }
