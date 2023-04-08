@@ -8,6 +8,7 @@ import { rootSaga } from './sagas';
 import todayWeatherReducer from './slices/todayweather.slice';
 import hourlyWeatherReducer from './slices/hourlyweather.slice';
 import dailyWeatherReducer from './slices/dailyweather.slice';
+import cityReducer from './slices/city.slice';
 
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
 	todayWeather: todayWeatherReducer,
 	hourlyWeather: hourlyWeatherReducer,
 	dailyWeather: dailyWeatherReducer,
+	city: cityReducer,
 });
 
 const persistConfig = getPersistConfig({
