@@ -19,4 +19,6 @@ export const ContentWrapper = styled.main`
 
 	background-color: ${({ theme }) => theme.colors.backgroundWhite};
 	backdrop-filter: blur(${({ theme }) => theme.blur[0]}px);
+
+	padding: ${({ theme }) => theme.padding[0]}px;
 `;
