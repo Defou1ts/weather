@@ -1,15 +1,15 @@
 import { getDateLocaledStringDate, getTimeLocaledStringDate } from '@utils';
 import { useCurrentDate } from '@hooks';
 
-import { ClockText } from './styled';
+import { ClockText, ClockWrapper } from './styled';
 
 export const Clock = () => {
 	const date = useCurrentDate();
 
 	return (
-		<div>
+		<ClockWrapper>
 			<ClockText>{getTimeLocaledStringDate(date)}</ClockText>
 			<ClockText>{getDateLocaledStringDate(date)}</ClockText>
-		</div>
+		</ClockWrapper>
 	);
 };

@@ -14,4 +14,5 @@ export const StyledButton = styled.button`
 	display: grid;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 `;

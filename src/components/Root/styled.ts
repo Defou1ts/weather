@@ -17,6 +17,13 @@ export const Layout = styled.div`
 export const ContentWrapper = styled.main`
 	grid-area: main;
 
+	display: grid;
+	grid-template-areas:
+		'clock search'
+		'calendar .'
+		'calendar switcher'
+		'weather weather';
+
 	background-color: ${({ theme }) => theme.colors.backgroundWhite};
 	backdrop-filter: blur(${({ theme }) => theme.blur[0]}px);
 

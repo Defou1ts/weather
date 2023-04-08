@@ -11,4 +11,5 @@ export { default as scatteredCloudsDayIcon } from './scattered-clouds-day.png';
 export { default as scatteredCloudsNightIcon } from './scattered-clouds-night.png';
 export { default as showerRainIcon } from './shower-rain.png';
 export { default as snowIcon } from './snow.png';
+export { default as spinnerIcon } from './spinner.gif';
 export { default as thunderstormIcon } from './thunderstorm.png';

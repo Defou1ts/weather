@@ -1,4 +1,4 @@
-import { Clock } from '@components';
+import { Clock, SearchCity } from '@components';
 
 import { ContentWrapper, Layout } from './styled';
 
@@ -7,6 +7,7 @@ export const Root = () => {
 		<Layout>
 			<ContentWrapper>
 				<Clock />
+				<SearchCity />
 			</ContentWrapper>
 		</Layout>
 	);
