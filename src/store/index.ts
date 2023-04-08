@@ -6,6 +6,7 @@ export * from './store';
 export * from './slices/city.slice';
 export * from './slices/dailyweather.slice';
 export * from './slices/hourlyweather.slice';
+export * from './slices/location.slice';
 export * from './slices/todayweather.slice';
 
 // Sagas
