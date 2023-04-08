@@ -3,7 +3,7 @@ export interface CitySearchResult {
 	generationtime_ms: number;
 }
 
-interface CityResult {
+export interface CityResult {
 	id: number;
 	name: string;
 	latitude: number;
