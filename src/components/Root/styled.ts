@@ -29,3 +29,7 @@ export const ContentWrapper = styled.main`
 
 	padding: ${({ theme }) => theme.padding[0]}px;
 `;
+
+export const WeatherWrapper = styled.div`
+	grid-area: weather;
+`;
