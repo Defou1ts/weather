@@ -20,4 +20,5 @@ export * from './sagas/todayweather.saga';
 export * from './selectors/city.selector';
 export * from './selectors/dailyweather.selector';
 export * from './selectors/hourlyweather.selector';
+export * from './selectors/location.selector';
 export * from './selectors/todayweather.selector';

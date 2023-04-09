@@ -5,3 +5,4 @@ export * from './Root/root.component';
 export * from './SearchCity/searchcity.component';
 export * from './SearchCityList/searchcitylist.component';
 export * from './Spinner/spinner.component';
+export * from './TodayWeather/todayweather.component';

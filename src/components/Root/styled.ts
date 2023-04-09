@@ -32,4 +32,12 @@ export const ContentWrapper = styled.main`
 
 export const WeatherWrapper = styled.div`
 	grid-area: weather;
+	display: grid;
+	grid-template-columns: minmax(0px, 200px) 1fr;
+
+	background-color: ${({ theme }) => theme.colors.backgroundWhite};
+	border-radius: ${({ theme }) => theme.borderRadius[1]}px;
+	padding: ${({ theme }) => theme.padding[3]}px;
+
+	grid-template-areas: 'today forecast';
 `;

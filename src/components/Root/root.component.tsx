@@ -1,4 +1,4 @@
-import { Clock, SearchCity } from '@components';
+import { Clock, SearchCity, TodayWeather } from '@components';
 
 import { ContentWrapper, Layout, WeatherWrapper } from './styled';
 
@@ -8,7 +8,9 @@ export const Root = () => {
 			<ContentWrapper>
 				<Clock />
 				<SearchCity />
-				<WeatherWrapper></WeatherWrapper>
+				<WeatherWrapper>
+					<TodayWeather />
+				</WeatherWrapper>
 			</ContentWrapper>
 		</Layout>
 	);

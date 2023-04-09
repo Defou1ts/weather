@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectSearchCitiesLoadingStatus, selectCitySearchResult, setCurrentCity } from '@store';
+import { selectSearchCitiesLoadingStatus, selectCitySearchResult, setCurrentCity, setLocation } from '@store';
 import { LOADING_STATUS } from '@constants';
 import { Button, Spinner } from '@components';
 import type { CityResult } from '@interfaces';
@@ -17,6 +17,14 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 
 	const handleSelectCity = (cityResult: CityResult) => () => {
 		dispatch(setCurrentCity(cityResult));
+
+		const { longitude, latitude } = cityResult;
+		dispatch(
+			setLocation({
+				lon: longitude,
+				lat: latitude,
+			})
+		);
 		onClearInputValue();
 	};
 
