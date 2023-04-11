@@ -10,6 +10,7 @@ import hourlyWeatherReducer from './slices/hourlyweather.slice';
 import dailyWeatherReducer from './slices/dailyweather.slice';
 import cityReducer from './slices/city.slice';
 import locationReducer from './slices/location.slice';
+import forecastWeatherReducer from './slices/forecastweather.slice';
 
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 	todayWeather: todayWeatherReducer,
 	hourlyWeather: hourlyWeatherReducer,
 	dailyWeather: dailyWeatherReducer,
+	forecastWeather: forecastWeatherReducer,
 	city: cityReducer,
 	location: locationReducer,
 });
