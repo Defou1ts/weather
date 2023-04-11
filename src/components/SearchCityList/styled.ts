@@ -10,7 +10,7 @@ export const SearchCityListWrapper = styled.div`
 	width: ${({ theme }) => theme.width[2]}%;
 	left: 0;
 
-	position: relative;
+	position: absolute;
 	z-index: 1;
 	max-height: ${({ theme }) => theme.height[4]}px;
 	overflow-y: auto;

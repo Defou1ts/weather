@@ -1,6 +1,6 @@
-import { Clock, SearchCity } from '@components';
+import { Clock, ForecastWeather, ForecastWeatherSwitch, SearchCity, TodayWeather } from '@components';
 
-import { ContentWrapper, Layout } from './styled';
+import { ContentWrapper, Layout, WeatherWrapper } from './styled';
 
 export const Root = () => {
 	return (
@@ -8,6 +8,11 @@ export const Root = () => {
 			<ContentWrapper>
 				<Clock />
 				<SearchCity />
+				<ForecastWeatherSwitch />
+				<WeatherWrapper>
+					<TodayWeather />
+					<ForecastWeather />
+				</WeatherWrapper>
 			</ContentWrapper>
 		</Layout>
 	);

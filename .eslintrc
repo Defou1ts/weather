@@ -17,6 +17,7 @@
 		"no-unmodified-loop-condition": "off",
 		"@typescript-eslint/explicit-function-return-type": "off",
 		"@typescript-eslint/triple-slash-reference": "off",
+		"@typescript-eslint/restrict-template-expressions": "off",
 		"react/react-in-jsx-scope": "off",
 		"import/order": [
 			"error",

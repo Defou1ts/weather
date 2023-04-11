@@ -10,3 +10,12 @@ export const advancedDateLocaleOptions: Intl.DateTimeFormatOptions = {
 	year: 'numeric',
 	day: 'numeric',
 };
+
+export const dayOfWeekLocaleOption: Intl.DateTimeFormatOptions = {
+	weekday: 'long',
+};
+
+export const HHMMLocaleOptions: Intl.DateTimeFormatOptions = {
+	hour: 'numeric',
+	minute: 'numeric',
+};
