@@ -21,7 +21,8 @@ export const ContentWrapper = styled.main`
 	grid-template-areas:
 		'clock search'
 		'calendar .'
-		'calendar switcher'
+		'calendar .'
+		'todayswitcher forecastswitch'
 		'weather weather';
 
 	background-color: ${({ theme }) => theme.colors.backgroundWhite};

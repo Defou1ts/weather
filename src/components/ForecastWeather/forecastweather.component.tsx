@@ -1,17 +1,12 @@
-import { useState } from 'react';
-
 import { useSelector } from 'react-redux';
 
 import { ForecastDailyWeather, ForecastHourlyWeather } from '@components';
-import { selectLocation } from '@store';
+import { selectForecastWeatherType, selectLocation } from '@store';
 
 import { ForecastWeatherWrapper } from './styled';
 
-import type { WeatherType } from './types';
-
 export const ForecastWeather = () => {
-	const [weatherType, setWeatherType] = useState<WeatherType>('hourly');
-
+	const forecastWeatherType = useSelector(selectForecastWeatherType);
 	const selectedLocation = useSelector(selectLocation);
 
 	if (selectedLocation === null) {
@@ -20,8 +15,8 @@ export const ForecastWeather = () => {
 
 	return (
 		<ForecastWeatherWrapper>
-			{weatherType === 'daily' && <ForecastDailyWeather />}
-			{weatherType === 'hourly' && <ForecastHourlyWeather />}
+			{forecastWeatherType === 'daily' && <ForecastDailyWeather />}
+			{forecastWeatherType === 'hourly' && <ForecastHourlyWeather />}
 		</ForecastWeatherWrapper>
 	);
 };
