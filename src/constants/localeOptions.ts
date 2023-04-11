@@ -14,3 +14,8 @@ export const advancedDateLocaleOptions: Intl.DateTimeFormatOptions = {
 export const dayOfWeekLocaleOption: Intl.DateTimeFormatOptions = {
 	weekday: 'long',
 };
+
+export const HHMMLocaleOptions: Intl.DateTimeFormatOptions = {
+	hour: 'numeric',
+	minute: 'numeric',
+};

@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ForecastWeatherItem, Spinner } from '@components';
 import { LOADING_STATUS, weatherStatuses } from '@constants';
-import { getTimeLocaledStringDate } from '@utils';
+import { getCurrentHourlyDateByUnixTime, getHHMMLocaledStringDate } from '@utils';
 import { fetchHourlyWeather, selectHourlyWeather, selectHourlyWeatherLoadingStatus, selectLocation } from '@store';
 
-import { ForecastHourlyWeatherText } from './styled';
+import { ForecastHourlyWeatherText, ForecastHourlyWeatherTitle } from './styled';
 
 export const ForecastHourlyWeather = () => {
 	const hourlyWeather = useSelector(selectHourlyWeather);
@@ -30,23 +30,23 @@ export const ForecastHourlyWeather = () => {
 		return null;
 	}
 
-	const { weathercode: weatherCodes, temperature_2m: temperature } = hourlyWeather.hourly;
+	const { weathercode: weatherCodes, temperature_2m: temperature, time } = hourlyWeather.hourly;
 
 	return (
 		<>
-			{hourlyWeather?.hourly.time.slice(0, 7).map((time, index) => {
+			{getCurrentHourlyDateByUnixTime(time).map((date, index) => {
 				const weatherCode = weatherCodes[index];
 
-				const dateOfDayOfWeek = new Date(time * 1000);
 				const { icon, description } = weatherStatuses[weatherCode];
 
 				return (
 					<ForecastWeatherItem
-						key={time}
-						timestamp={getTimeLocaledStringDate(dateOfDayOfWeek)}
+						key={date.getTime()}
+						timestamp={getHHMMLocaledStringDate(date)}
 						icon={<img src={icon} alt={description} title={description} />}
 					>
-						<ForecastHourlyWeatherText>{temperature[index]}&#176;</ForecastHourlyWeatherText>
+						<ForecastHourlyWeatherTitle>{temperature[index]}&#176;</ForecastHourlyWeatherTitle>
+						<ForecastHourlyWeatherText>{description}</ForecastHourlyWeatherText>
 					</ForecastWeatherItem>
 				);
 			})}
