@@ -21,7 +21,7 @@ export const citySlice = createSlice({
 	name: 'city',
 	initialState,
 	reducers: {
-		setCurrentCity: (state, action: PayloadAction<CityResult>) => {
+		setCurrentCity: (state, action: PayloadAction<CityResult | null>) => {
 			state.currentCity = action.payload;
 		},
 		setSearchCitiesLoadingStatus: (state, action: PayloadAction<LOADING_STATUS>) => {
