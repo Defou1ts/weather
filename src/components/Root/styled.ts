@@ -9,7 +9,7 @@ export const Layout = styled.div<RootBackground>`
 	grid-template-rows: auto auto auto;
 
 	background: url(${({ background }) => background}) repeat;
-	background-size: 100%;
+	background-size: cover;
 
 	width: ${({ theme }) => theme.width[2]}vw;
 	min-height: ${({ theme }) => theme.height[2]}vh;
