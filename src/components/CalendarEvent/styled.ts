@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const CalendarEventWrapper = styled.div`
-	width: 100%;
-	border-radius: 10px;
-	padding: 5px;
-	font-size: 12px;
-	background-color: rgb(26, 115, 232);
-	color: white;
+	width: ${({ theme }) => theme.width[2]}%;
+	border-radius: ${({ theme }) => theme.borderRadius[1]}px;
+	padding: ${({ theme }) => theme.padding[4]}px;
+	font-size: ${({ theme }) => theme.fontSize[6]}px;
+	background-color: ${({ theme }) => theme.colors.blue};
+	color: ${({ theme }) => theme.colors.white};
 `;
