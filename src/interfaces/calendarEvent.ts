@@ -9,10 +9,10 @@ export interface CalendarEvent {
 	summary: string;
 	creator: Creator;
 	organizer: Creator;
-	start: End;
-	end: End;
+	start: Timestamp;
+	end: Timestamp;
 	recurringEventId: string;
-	originalStartTime: End;
+	originalStartTime: Timestamp;
 	iCalUID: string;
 	sequence: number;
 	attendees: Attendee[];
@@ -63,7 +63,7 @@ export interface Creator {
 	email: string;
 }
 
-export interface End {
+export interface Timestamp {
 	dateTime: number;
 	timeZone: string;
 }
