@@ -9,6 +9,9 @@ export const GlobalStyles = createGlobalStyle`
 
 	html,
 	body {
+		display: grid;
+		grid-template-rows: 100%;
+		grid-template-columns: 1fr;
 		margin: 0;
 		padding: 0;
 		font-family: var(--font-family);
