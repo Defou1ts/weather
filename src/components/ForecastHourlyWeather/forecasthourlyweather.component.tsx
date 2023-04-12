@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ForecastWeatherItem, Spinner } from '@components';
-import { LOADING_STATUS, weatherStatuses } from '@constants';
+import { LOADING_STATUS, SPINNER_SIZE, weatherStatuses } from '@constants';
 import { getCurrentHourlyDateByUnixTime, getHHMMLocaledStringDate } from '@utils';
 import { fetchHourlyWeather, selectHourlyWeather, selectHourlyWeatherLoadingStatus, selectLocation } from '@store';
 
@@ -23,7 +23,7 @@ export const ForecastHourlyWeather = () => {
 	}, [selectedLocation]);
 
 	if (hourlyWeatherLoadingStatus === LOADING_STATUS.LOADING) {
-		return <Spinner size="l" />;
+		return <Spinner size={SPINNER_SIZE.LARGE} />;
 	}
 
 	if (hourlyWeather === null) {
