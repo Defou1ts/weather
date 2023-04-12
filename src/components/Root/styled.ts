@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-import { BackgroundImage } from '@assets';
+import type { RootBackground } from './interfaces';
 
-export const Layout = styled.div`
+export const Layout = styled.div<RootBackground>`
 	display: grid;
 	grid-template-areas: '. . .' '. main .' '. . .';
 	grid-template-columns: auto minmax(0, ${({ theme }) => theme.width[1]}px) auto;
 	grid-template-rows: auto auto auto;
 
-	background: url(${BackgroundImage}) repeat;
+	background: url(${({ background }) => background}) repeat;
+	background-size: 100%;
 
 	width: ${({ theme }) => theme.width[2]}vw;
 	min-height: ${({ theme }) => theme.height[2]}vh;

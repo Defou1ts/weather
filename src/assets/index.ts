@@ -1,4 +1,13 @@
-export { default as BackgroundImage } from './background.jpg';
+// Backgrounds
+export { default as ClearSkyBackgroundImage } from './backgrounds/clear-sky-background.jpg';
+export { default as FewCloudBackgroundImage } from './backgrounds/few-сlouds-background.jpg';
+export { default as MistBackgroundImage } from './backgrounds/mist-background.jpg';
+export { default as RainBackgroundImage } from './backgrounds/rain-background.jpg';
+export { default as ShowerRainBackgroundImage } from './backgrounds/shower-rain-background.jpg';
+export { default as SnowBackgroundImage } from './backgrounds/snow-background.jpg';
+export { default as ThunderStormBackgroundImage } from './backgrounds/thunderstorm-background.jpg';
+
+// Icons
 export { default as brokenCloudsIcon } from './broken-clouds.png';
 export { default as clearSkyDayIcon } from './clear-sky-day.png';
 export { default as clearSkyNightIcon } from './clear-sky-night.png';
