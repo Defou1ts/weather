@@ -31,5 +31,5 @@
 			"@theme": ["./theme"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src", "cypress.config.ts", "cypress"]
 }

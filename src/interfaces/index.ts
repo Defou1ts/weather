@@ -1,3 +1,5 @@
+export * from './calendarApiEventsResponse';
+export * from './calendarEvent';
 export * from './citySearchResult';
 export * from './dailyWeather';
 export * from './hourlyWeather';

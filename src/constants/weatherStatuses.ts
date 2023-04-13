@@ -13,6 +13,7 @@ export const weatherStatuses: Record<number, WeatherStatus> = {
 	0: {
 		icon: clearSkyDayIcon,
 		description: 'Clear sky',
+		
 	},
 	1: {
 		icon: fewCloudsDayIcon,

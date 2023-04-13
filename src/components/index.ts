@@ -1,4 +1,6 @@
 export * from './Button/button.component';
+export * from './Calendar/calendar.component';
+export * from './CalendarEvent/calendarevent.component';
 export * from './Clock/clock.component';
 export * from './ErrorBoundary/errorboundary.component';
 export * from './ForecastDailyWeather/foreactdailyweather.component';

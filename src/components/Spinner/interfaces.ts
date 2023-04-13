@@ -1,7 +1,7 @@
-import type { SpinnerSize } from '@types';
+import type { SPINNER_SIZE } from '@constants';
 
 export interface SpinnerProps {
-	size: SpinnerSize;
+	size: SPINNER_SIZE;
 }
 
 export interface SpinnerImageProps {

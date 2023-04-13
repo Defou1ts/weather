@@ -10,7 +10,7 @@ import {
 	setLocation,
 } from '@store';
 import { Spinner } from '@components';
-import { LOADING_STATUS } from '@constants';
+import { LOADING_STATUS, SPINNER_SIZE } from '@constants';
 
 import { useCurrentLocation } from './useCurrentLocation';
 
@@ -45,7 +45,7 @@ export const useTodayWeather = () => {
 	if (todayWeatherLoadingStatus === LOADING_STATUS.LOADING) {
 		return {
 			todayWeather,
-			replaceContent: <Spinner size="l" />,
+			replaceContent: <Spinner size={SPINNER_SIZE.LARGE} />,
 		};
 	}
 

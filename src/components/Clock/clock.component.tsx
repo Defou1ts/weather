@@ -8,8 +8,8 @@ export const Clock = () => {
 
 	return (
 		<ClockWrapper>
-			<ClockText>{getTimeLocaledStringDate(date)}</ClockText>
-			<ClockText>{getDateLocaledStringDate(date)}</ClockText>
+			<ClockText data-test-id="time-clock">{getTimeLocaledStringDate(date)}</ClockText>
+			<ClockText data-test-id="date-clock">{getDateLocaledStringDate(date)}</ClockText>
 		</ClockWrapper>
 	);
 };

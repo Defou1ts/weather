@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ForecastWeatherItem, Spinner } from '@components';
-import { LOADING_STATUS, weatherStatuses } from '@constants';
+import { LOADING_STATUS, SPINNER_SIZE, weatherStatuses } from '@constants';
 import { getDayOfWeekLocaledStringDate } from '@utils';
 import { fetchDailyWeather, selectDailyWeather, selectDailyWeatherLoadingStatus, selectLocation } from '@store';
 
@@ -23,7 +23,7 @@ export const ForecastDailyWeather = () => {
 	}, [selectedLocation]);
 
 	if (dailyWeatherLoadingStatus === LOADING_STATUS.LOADING) {
-		return <Spinner size="l" />;
+		return <Spinner size={SPINNER_SIZE.LARGE} />;
 	}
 
 	if (dailyWeather === null) {

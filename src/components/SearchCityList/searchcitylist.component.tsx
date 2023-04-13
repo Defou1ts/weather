@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectSearchCitiesLoadingStatus, selectCitySearchResult, setCurrentCity, setLocation } from '@store';
-import { LOADING_STATUS } from '@constants';
+import { LOADING_STATUS, SPINNER_SIZE } from '@constants';
 import { Button, Spinner } from '@components';
 import type { CityResult } from '@interfaces';
 
@@ -31,7 +31,7 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 	if (searchCityLoadingStatus === LOADING_STATUS.LOADING) {
 		return (
 			<SearchCityListWrapper>
-				<Spinner size="l" />
+				<Spinner size={SPINNER_SIZE.LARGE} />
 			</SearchCityListWrapper>
 		);
 	}

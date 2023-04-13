@@ -15,4 +15,11 @@ export const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+
+	transition: ${({ theme }) => theme.transition.light};
+
+	&:hover {
+		transform: scale(1.01);
+		background-color: ${({ theme }) => theme.colors.lightBlack};
+	}
 `;
