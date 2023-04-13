@@ -17,7 +17,7 @@
 		"babel-jest": "^29.5.0",
 		"babel-loader": "^8.3.0",
 		"clean-webpack-plugin": "^4.0.0",
-		"cypress": "^12.8.1",
+		"cypress": "^12.9.0",
 		"dotenv-webpack": "^8.0.1",
 		"eslint": "^8.0.1",
 		"eslint-config-prettier": "^8.6.0",
