@@ -6,12 +6,6 @@ import { APP_HOST, APP_PORT } from './src/constants/environment';
 
 export default defineConfig({
 	watchForFileChanges: true,
-	env: {
-		browserPermissions: {
-			geolocation: 'allow',
-			notifications: 'allow',
-		},
-	},
 	e2e: {
 		baseUrl: `http://${APP_HOST}:${APP_PORT}`,
 		screenshotsFolder: 'cypress/report/screenshots',
