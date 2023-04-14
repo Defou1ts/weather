@@ -11,10 +11,10 @@ describe('Check app components', () => {
 	beforeEach(() => {
 		cy.visit('/');
 	});
+	checkCalendar();
 	checkClockView();
 	checkSearchCity();
 	checkSwitchApi();
-	checkCalendar();
 	checkTodayWeatherView();
 	checkAltAndTitleImagesAttributes();
 });

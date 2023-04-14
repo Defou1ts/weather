@@ -44,7 +44,8 @@ export const checkSearchCity = () => {
 
 export const checkCalendar = () => {
 	it('Check calendar', () => {
-		cy.get('[data-test-id=calendar-sign-in]').should('be.visible');
+		mockGoogleAuthPopup();
+		cy.get('[data-test-id=calendar-sign-in]').should('be.visible').click();
 	});
 };
 
@@ -86,6 +87,14 @@ export const mockGeolocationData = () => {
 			expect(position.coords.latitude).to.equal(37.7749);
 			expect(position.coords.longitude).to.equal(-122.4194);
 		});
+	});
+};
+
+export const mockGoogleAuthPopup = () => {
+	cy.visit('/');
+	cy.window().then((win) => {
+		cy.stub(win, 'open',()=> {}).as('windowOpen');
+		
 	});
 };
 
