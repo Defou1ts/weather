@@ -55,6 +55,8 @@
 		"types": "^0.1.1"
 	},
 	"scripts": {
+		"lint": "eslint --fix src",
+		"prepare": "husky install",
 		"watch:dev": "webpack serve --mode development --open --hot",
 		"watch:prod": "webpack serve --open --mode production",
 		"build": "webpack --mode production",
