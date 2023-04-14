@@ -33,9 +33,16 @@ export const SearchCity = () => {
 
 	return (
 		<SearchCityWrapper>
-			<Button onClick={handleClearCity}>Reset City</Button>
+			<Button data-test-id="city-search-reset" onClick={handleClearCity}>
+				Reset City
+			</Button>
 			<h3>Search city</h3>
-			<SearchInput type="search" value={inputValue} onChange={handleChangeInput} />
+			<SearchInput
+				data-test-id="city-search-input"
+				type="search"
+				value={inputValue}
+				onChange={handleChangeInput}
+			/>
 			<SearchCityList onClearInputValue={handleClearInputValue} />
 		</SearchCityWrapper>
 	);

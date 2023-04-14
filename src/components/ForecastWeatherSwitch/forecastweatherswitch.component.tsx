@@ -15,8 +15,12 @@ export const ForecastWeatherSwitch = () => {
 
 	return (
 		<ForecastWeatherSwitchWrapper>
-			<Button onClick={handleSwitchForecastWeatherType('daily')}>Daily</Button>
-			<Button onClick={handleSwitchForecastWeatherType('hourly')}>Hourly</Button>
+			<Button data-test-id="set-daily-weather" onClick={handleSwitchForecastWeatherType('daily')}>
+				Daily
+			</Button>
+			<Button data-test-id="set-hourly-weather" onClick={handleSwitchForecastWeatherType('hourly')}>
+				Hourly
+			</Button>
 		</ForecastWeatherSwitchWrapper>
 	);
 };

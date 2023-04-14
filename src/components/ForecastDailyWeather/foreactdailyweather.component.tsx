@@ -23,7 +23,7 @@ export const ForecastDailyWeather = () => {
 	}, [selectedLocation]);
 
 	if (dailyWeatherLoadingStatus === LOADING_STATUS.LOADING) {
-		return <Spinner size={SPINNER_SIZE.LARGE} />;
+		return <Spinner data-test-id="daily-weather-spinner" size={SPINNER_SIZE.LARGE} />;
 	}
 
 	if (dailyWeather === null) {
@@ -50,7 +50,9 @@ export const ForecastDailyWeather = () => {
 						timestamp={getDayOfWeekLocaledStringDate(dateOfDayOfWeek)}
 						icon={<img src={icon} alt={description} title={description} />}
 					>
-						<ForecastDailyWeatherText>{description}</ForecastDailyWeatherText>
+						<ForecastDailyWeatherText data-test-id="daily-weather-title">
+							{description}
+						</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>Max:</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>{temperatureMax[index]}&#176;</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>Min:</ForecastDailyWeatherText>

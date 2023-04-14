@@ -1,7 +1,20 @@
-import { checkClockView } from '../support/weather'
+import {
+	checkAltAndTitleImagesAttributes,
+	checkCalendar,
+	checkClockView,
+	checkSearchCity,
+	checkSwitchApi,
+	checkTodayWeatherView,
+} from '../support/weather';
 
-
-
-describe('Check basic View',()=> {
-	checkClockView()
-})
+describe('Check app components', () => {
+	beforeEach(() => {
+		cy.visit('/');
+	});
+	checkClockView();
+	checkSearchCity();
+	checkSwitchApi();
+	checkCalendar();
+	checkTodayWeatherView();
+	checkAltAndTitleImagesAttributes();
+});

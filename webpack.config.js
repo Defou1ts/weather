@@ -12,6 +12,7 @@ const paths = {
 
 module.exports = {
 	context: paths.src,
+	watch: true,
 
 	entry: {
 		app: './index',

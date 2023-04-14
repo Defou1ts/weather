@@ -6,7 +6,7 @@ export const TodayWeather = () => {
 	const { todayWeather, replaceContent } = useTodayWeather();
 
 	if (replaceContent !== null) {
-		return <TodayWeatherWrapper>{replaceContent}</TodayWeatherWrapper>;
+		return <TodayWeatherWrapper data-test-id="today-weather-spinner-wrapper">{replaceContent}</TodayWeatherWrapper>;
 	}
 
 	if (todayWeather === null) {
@@ -18,10 +18,11 @@ export const TodayWeather = () => {
 	const { feels_like: feelsLike, temp } = main;
 
 	return (
-		<TodayWeatherWrapper>
-			<TodayWeatherText>Today</TodayWeatherText>
-			<TodayWeatherText>{name}</TodayWeatherText>
+		<TodayWeatherWrapper data-test-id="today-weather-wrapper">
+			<TodayWeatherText data-test-id="today-weather-title">Today</TodayWeatherText>
+			<TodayWeatherText data-test-id="today-weather-text">{name}</TodayWeatherText>
 			<TodayWeatherImage
+				data-test-id="today-weather-image"
 				src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
 				alt={description}
 				title={description}
