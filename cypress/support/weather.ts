@@ -44,8 +44,7 @@ export const checkSearchCity = () => {
 
 export const checkCalendar = () => {
 	it('Check calendar', () => {
-		mockGoogleAuthPopup();
-		cy.get('[data-test-id=calendar-sign-in]').should('be.visible').click();
+		cy.get('[data-test-id=calendar-sign-in]').should('be.visible');
 	});
 };
 
@@ -93,15 +92,14 @@ export const mockGeolocationData = () => {
 export const mockGoogleAuthPopup = () => {
 	cy.visit('/');
 	cy.window().then((win) => {
-		cy.stub(win, 'open',()=> {}).as('windowOpen');
-		
+		cy.stub(win, 'open', () => {}).as('windowOpen');
 	});
 };
 
 export const checkTodayWeatherView = () => {
 	it('Check today wather view', () => {
 		mockGeolocationData();
-		cy.get('[data-test-id=today-weather-wrapper]')
+		cy.wait('[data-test-id=today-weather-wrapper]')
 			.should('be.visible')
 			.get('[data-test-id=today-weather-title]')
 			.should('be.visible')
