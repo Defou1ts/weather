@@ -50,9 +50,10 @@ export const checkCalendar = () => {
 
 export const checkWeatherBlock = () => {
 	it('Check api switch', () => {
-		mockGeolocationData();
 		cy.intercept('GET', 'https://api.open-meteo.com/v1/forecast?*').as('getForecastWeather');
 		cy.intercept('GET', 'https://api.openweathermap.org/data/2.5/weather?*').as('getTodayWeather');
+		mockGeolocationData()
+		cy.wait(0)
 		cy.wait(['@getTodayWeather', '@getForecastWeather'])
 			.get('[data-test-id=today-weather-wrapper]')
 			.should('be.visible')
