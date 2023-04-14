@@ -9,8 +9,6 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Lint
-              run: yarn lint
             - uses: actions/checkout@v3
             - name: Install NodeJS
               uses: actions/setup-node@v3
@@ -36,3 +34,5 @@ jobs:
                   token: ${{ secrets.DEPLOY }}
                   branch: gh-pages
                   folder: dist
+            - name: Lint
+              run: yarn lint
