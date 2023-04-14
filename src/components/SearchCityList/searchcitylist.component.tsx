@@ -31,13 +31,13 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 	if (searchCityLoadingStatus === LOADING_STATUS.LOADING) {
 		return (
 			<SearchCityListWrapper>
-				<Spinner size={SPINNER_SIZE.LARGE} />
+				<Spinner data-test-id="city-search-spinner" size={SPINNER_SIZE.LARGE} />
 			</SearchCityListWrapper>
 		);
 	}
 
 	return (
-		<SearchCityListWrapper>
+		<SearchCityListWrapper data-test-id="city-search-result-wrapper">
 			{searchCityResult?.results?.map((cityResult) => {
 				const { id, name, country, country_code: countryCode } = cityResult;
 
@@ -46,7 +46,9 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 						<p>
 							{name}, {country}, {countryCode}
 						</p>
-						<Button onClick={handleSelectCity(cityResult)}>select</Button>
+						<Button data-test-id="city-search-select" onClick={handleSelectCity(cityResult)}>
+							select
+						</Button>
 					</SearchCityListItemWrapper>
 				);
 			})}

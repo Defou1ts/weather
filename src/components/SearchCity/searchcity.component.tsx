@@ -13,7 +13,7 @@ export const SearchCity = () => {
 	const { location } = useCurrentLocation();
 	const dispatch = useDispatch();
 
-	const [inputValue, setInputValue] = useState<string>('');
+	const [inputValue, setInputValue] = useState<string | null>(null);
 
 	const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
@@ -28,14 +28,23 @@ export const SearchCity = () => {
 	};
 
 	useEffect(() => {
-		dispatch(fetchCityByName(inputValue));
+		if (inputValue !== null) {
+			dispatch(fetchCityByName(inputValue));
+		}
 	}, [inputValue]);
 
 	return (
 		<SearchCityWrapper>
-			<Button onClick={handleClearCity}>Reset City</Button>
+			<Button data-test-id="city-search-reset" onClick={handleClearCity}>
+				Reset City
+			</Button>
 			<h3>Search city</h3>
-			<SearchInput type="search" value={inputValue} onChange={handleChangeInput} />
+			<SearchInput
+				data-test-id="city-search-input"
+				type="search"
+				value={inputValue ?? ''}
+				onChange={handleChangeInput}
+			/>
 			<SearchCityList onClearInputValue={handleClearInputValue} />
 		</SearchCityWrapper>
 	);

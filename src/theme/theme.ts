@@ -22,8 +22,7 @@ export const transition = {
 };
 
 export const breakpoints = {
-	sm: 800,
-	xs: 550,
+	xl: 1000,
 } as const;
 
 export const theme: Theme = {

@@ -5,6 +5,7 @@ import webpackPreprocessor from '@cypress/webpack-preprocessor';
 import { APP_HOST, APP_PORT } from './src/constants/environment';
 
 export default defineConfig({
+	watchForFileChanges: true,
 	e2e: {
 		baseUrl: `http://${APP_HOST}:${APP_PORT}`,
 		screenshotsFolder: 'cypress/report/screenshots',
@@ -16,7 +17,7 @@ export default defineConfig({
 			reportFilename: 'report',
 			overwrite: true,
 		},
-		setupNodeEvents(on) {
+		setupNodeEvents(on, config) {
 			on(
 				'file:preprocessor',
 				webpackPreprocessor({

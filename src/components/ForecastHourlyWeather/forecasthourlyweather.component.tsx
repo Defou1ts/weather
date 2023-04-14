@@ -41,11 +41,14 @@ export const ForecastHourlyWeather = () => {
 
 				return (
 					<ForecastWeatherItem
+						data-test-id="hourly-weather-item"
 						key={date.getTime()}
 						timestamp={getHHMMLocaledStringDate(date)}
 						icon={<img src={icon} alt={description} title={description} />}
 					>
-						<ForecastHourlyWeatherTitle>{temperature[index]}&#176;</ForecastHourlyWeatherTitle>
+						<ForecastHourlyWeatherTitle data-test-id="hourly-weather-title">
+							{temperature[index]}&#176;
+						</ForecastHourlyWeatherTitle>
 						<ForecastHourlyWeatherText>{description}</ForecastHourlyWeatherText>
 					</ForecastWeatherItem>
 				);
