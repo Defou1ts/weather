@@ -7,26 +7,17 @@ jobs:
     test:
         runs-on: ubuntu-22.04
         steps:
-            - uses: actions/checkout@master
-
-            - name: Cache node modules
-              id: cache-npm
-              uses: actions/cache@v3
-              env:
-                  cache-name: cache-node-modules
+            - uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
               with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-build-${{ env.cache-name }}-
-                      ${{ runner.os }}-build-
-                      ${{ runner.os }}-
-
-            - name: Install root dependencies
-              uses: bahmutov/npm-install@v1
+                  node-version: 14
+                  cache: 'yarn'
+            - name: Install dependecies
+              run: yarn
 
             - name: Start server in the background
-              run: npm watch:dev &
+              run: yarn watch:dev &
 
             # Cypress has its own package.json in folder "e2e"
             - name: Install Cypress and run tests
