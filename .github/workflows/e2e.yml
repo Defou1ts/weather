@@ -26,7 +26,7 @@ jobs:
               uses: bahmutov/npm-install@v1
 
             - name: Start server in the background
-              run: npm start &
+              run: npm watch:dev &
 
             # Cypress has its own package.json in folder "e2e"
             - name: Install Cypress and run tests
