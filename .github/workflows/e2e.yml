@@ -16,6 +16,10 @@ jobs:
             - name: Install dependecies
               run: yarn
 
+            - name: 'Create env file'
+              run: |
+                echo "${{ secrets.ENV }}" > .env
+
             - name: Start server in the background
               run: yarn watch:dev &
 
