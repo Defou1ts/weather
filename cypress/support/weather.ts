@@ -51,11 +51,14 @@ export const checkCalendar = () => {
 export const checkSwitchApi = () => {
 	it('Check api switch', () => {
 		mockGeolocationData();
-		cy.get('[data-test-id=daily-weather-title]')
+		cy.intercept('GET', 'https://api.open-meteo.com/v1/forecast?*').as('getForecastWeather');
+		cy.wait('@getForecastWeather')
+			.get('[data-test-id=daily-weather-title]')
 			.should('have.length', 7)
 			.get('[data-test-id=set-hourly-weather]')
 			.should('be.visible')
 			.click()
+			.wait('@getForecastWeather')
 			.get('[data-test-id=hourly-weather-title]')
 			.should('have.length.above', 0)
 			.get('[data-test-id=daily-weather-title]')
@@ -63,6 +66,7 @@ export const checkSwitchApi = () => {
 			.get('[data-test-id=set-daily-weather]')
 			.should('be.visible')
 			.click()
+			.wait('@getForecastWeather')
 			.get('[data-test-id=hourly-weather-title]')
 			.should('not.exist')
 			.get('[data-test-id=daily-weather-title]')
@@ -99,7 +103,9 @@ export const mockGoogleAuthPopup = () => {
 export const checkTodayWeatherView = () => {
 	it('Check today wather view', () => {
 		mockGeolocationData();
-		cy.wait('[data-test-id=today-weather-wrapper]')
+		cy.intercept('GET', 'https://api.openweathermap.org/data/2.5/weather?*').as('getTodayWeather');
+		cy.wait('@getTodayWeather')
+			.get('[data-test-id=today-weather-wrapper]')
 			.should('be.visible')
 			.get('[data-test-id=today-weather-title]')
 			.should('be.visible')
