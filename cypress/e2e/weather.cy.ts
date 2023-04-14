@@ -3,18 +3,16 @@ import {
 	checkCalendar,
 	checkClockView,
 	checkSearchCity,
-	checkSwitchApi,
-	checkTodayWeatherView,
+	checkWeatherBlock,
 } from '../support/weather';
 
 describe('Check app components', () => {
 	beforeEach(() => {
 		cy.visit('/');
 	});
-	checkTodayWeatherView();
 	checkCalendar();
 	checkClockView();
 	checkSearchCity();
-	checkSwitchApi();
+	checkWeatherBlock();
 	checkAltAndTitleImagesAttributes();
 });
