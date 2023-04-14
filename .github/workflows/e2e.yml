@@ -7,6 +7,11 @@ jobs:
     test:
         runs-on: ubuntu-22.04
         steps:
+            - name: Save Test Results
+              uses: actions/upload-artifact@v2
+              with:
+                  name: test-results
+                  path: cypress/report/
             - uses: actions/checkout@v3
             - name: Install NodeJS
               uses: actions/setup-node@v3
@@ -22,8 +27,3 @@ jobs:
             # Cypress has its own package.json in folder "e2e"
             - name: Install Cypress and run tests
               uses: cypress-io/github-action@v5
-            - name: Save Test Results
-              uses: actions/upload-artifact@v2
-              with:
-                  name: test-results
-                  path: cypress/report/
