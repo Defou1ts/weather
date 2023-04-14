@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { defineConfig } from 'cypress';
 import webpackPreprocessor from '@cypress/webpack-preprocessor';
-import { cypressBrowserPermissionsPlugin } from 'cypress-browser-permissions';
 
 import { APP_HOST, APP_PORT } from './src/constants/environment';
 
@@ -29,17 +28,9 @@ export default defineConfig({
 				'file:preprocessor',
 				webpackPreprocessor({
 					webpackOptions: require('./webpack.config'),
-					watchOptions: {
-						watch: true,
-						ignored: '**/node_modules',
-						aggregateTimeout: 200,
-						poll: 500,
-					},
+					watchOptions: {},
 				})
 			);
-
-			config = cypressBrowserPermissionsPlugin(on, config);
-			return config;
 		},
 	},
 });
