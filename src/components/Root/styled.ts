@@ -31,6 +31,17 @@ export const ContentWrapper = styled.main`
 	backdrop-filter: blur(${({ theme }) => theme.blur[0]}px);
 
 	padding: ${({ theme }) => theme.padding[0]}px;
+
+	@media screen and (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+		padding: ${({ theme }) => theme.padding[3]}px;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'clock'
+			'search'
+			'calendar'
+			'forecastswitch'
+			'weather';
+	}
 `;
 
 export const WeatherWrapper = styled.div`
@@ -43,4 +54,11 @@ export const WeatherWrapper = styled.div`
 	padding: ${({ theme }) => theme.padding[3]}px;
 
 	grid-template-areas: 'today forecast';
+
+	@media screen and (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+		grid-template-columns: 1fr;
+		row-gap: ${({ theme }) => theme.gaps[1]}px;
+		grid-template-rows: auto;
+		grid-template-areas: 'today' 'forecast';
+	}
 `;
