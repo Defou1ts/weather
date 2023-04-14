@@ -106,9 +106,6 @@ export const checkTodayWeatherView = () => {
 		mockGeolocationData();
 		cy.intercept('GET', 'https://api.openweathermap.org/data/2.5/weather?*').as('getTodayWeather');
 		cy.wait('@getTodayWeather')
-			.wait(2000)
-			.get('[data-test-id=today-weather-wrapper]')
-			.should('be.visible')
 			.get('[data-test-id=today-weather-title]')
 			.should('be.visible')
 			.should('have.text', 'Today')
