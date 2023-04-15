@@ -8,16 +8,8 @@ export const Calendar = () => {
 
 	return (
 		<CalendarWrapper>
-			{isAuth && (
-				<Button data-test-id="calendar-sign-out" onClick={handleSignOut}>
-					Sign out
-				</Button>
-			)}
-			{!isAuth && (
-				<Button data-test-id="calendar-sign-in" onClick={handleAuth}>
-					Sign in
-				</Button>
-			)}
+			{isAuth && <Button onClick={handleSignOut}>Sign out</Button>}
+			{!isAuth && <Button onClick={handleAuth}>Sign in</Button>}
 			<CalendarEventsWrapper>
 				{events.map((event) => (
 					<CalendarEvent event={event} key={event.id} />

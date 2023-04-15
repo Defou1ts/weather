@@ -27,7 +27,8 @@ export const checkSearchCity = () => {
 			.should('not.exist')
 			.get('[data-test-id=city-search-result-wrapper]')
 			.should('have.length.greaterThan', 0)
-			.get('[data-test-id=city-search-select]')
+			.get('button')
+			.contains('select')
 			.first()
 			.click()
 			.get('[data-test-id=today-weather-spinner-wrapper]')
@@ -44,7 +45,7 @@ export const checkSearchCity = () => {
 
 export const checkCalendar = () => {
 	it('Check calendar', () => {
-		cy.get('[data-test-id=calendar-sign-in]').should('be.visible');
+		cy.get('button').contains('Sign in').should('be.visible');
 	});
 };
 
@@ -52,8 +53,8 @@ export const checkWeatherBlock = () => {
 	it('Check api switch', () => {
 		cy.intercept('GET', 'https://api.open-meteo.com/v1/forecast?*').as('getForecastWeather');
 		cy.intercept('GET', 'https://api.openweathermap.org/data/2.5/weather?*').as('getTodayWeather');
-		mockGeolocationData()
-		cy.wait(0)
+		mockGeolocationData();
+		cy.wait(0);
 		cy.wait(['@getTodayWeather', '@getForecastWeather'])
 			.get('[data-test-id=today-weather-wrapper]')
 			.should('be.visible')
@@ -66,7 +67,8 @@ export const checkWeatherBlock = () => {
 			.should('be.visible')
 			.get('[data-test-id=daily-weather-title]')
 			.should('have.length', 7)
-			.get('[data-test-id=set-hourly-weather]')
+			.get('[data-test-id=button]')
+			.contains('Hourly')
 			.should('be.visible')
 			.click()
 			.wait('@getForecastWeather')
@@ -74,7 +76,8 @@ export const checkWeatherBlock = () => {
 			.should('have.length.above', 0)
 			.get('[data-test-id=daily-weather-title]')
 			.should('not.exist')
-			.get('[data-test-id=set-daily-weather]')
+			.get('[data-test-id=button]')
+			.contains('Daily')
 			.should('be.visible')
 			.click()
 			.wait('@getForecastWeather')

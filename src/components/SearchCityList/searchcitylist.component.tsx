@@ -5,7 +5,7 @@ import { LOADING_STATUS, SPINNER_SIZE } from '@constants';
 import { Button, Spinner } from '@components';
 import type { CityResult } from '@interfaces';
 
-import { SearchCityListItemWrapper, SearchCityListWrapper } from './styled';
+import { SearchCityListIemText, SearchCityListItemWrapper, SearchCityListWrapper } from './styled';
 
 import type { SeachCityListProps } from './interfaces';
 
@@ -43,12 +43,10 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 
 				return (
 					<SearchCityListItemWrapper key={id}>
-						<p>
+						<SearchCityListIemText>
 							{name}, {country}, {countryCode}
-						</p>
-						<Button data-test-id="city-search-select" onClick={handleSelectCity(cityResult)}>
-							select
-						</Button>
+						</SearchCityListIemText>
+						<Button onClick={handleSelectCity(cityResult)}>select</Button>
 					</SearchCityListItemWrapper>
 				);
 			})}

@@ -35,9 +35,7 @@ export const SearchCity = () => {
 
 	return (
 		<SearchCityWrapper>
-			<Button data-test-id="city-search-reset" onClick={handleClearCity}>
-				Reset City
-			</Button>
+			<Button onClick={handleClearCity}>Reset City</Button>
 			<h3>Search city</h3>
 			<SearchInput
 				data-test-id="city-search-input"

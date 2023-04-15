@@ -25,3 +25,7 @@ export const SearchCityListItemWrapper = styled.div`
 	align-items: center;
 	padding: ${({ theme }) => theme.padding[3]}px;
 `;
+
+export const SearchCityListIemText = styled.p`
+	font-size: ${({theme})=> theme.fontSize[0]};
+`
