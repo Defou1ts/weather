@@ -13,6 +13,12 @@ const paths = {
 module.exports = {
 	context: paths.src,
 
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+
 	entry: {
 		app: './index',
 	},
