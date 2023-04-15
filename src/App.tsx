@@ -1,49 +1,13 @@
-import { useDeferredValue, useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 
-import { openMeteoApi } from '@api';
-import type { CitySearchResult, DailyWeather } from '@interfaces';
+import { theme, GlobalStyles } from '@theme';
+import { Root } from '@components';
 
-export const App = (): JSX.Element | null => {
-	const [hourlyWeather, setHourlyWeather] = useState<DailyWeather | null>(null);
-	const [cities, setCities] = useState<CitySearchResult | null>(null);
-	const [value, setValue] = useState<string>('');
-
-	const valueForFetch = useDeferredValue(value);
-
-	const { getDailyWeather, searchCityByName } = openMeteoApi;
-
-	useEffect(() => {
-		void getDailyWeather('55.1904', '30.2049').then((data) => {
-			setHourlyWeather(data);
-		});
-	}, []);
-
-	useEffect(() => {
-		console.log(hourlyWeather);
-	}, [hourlyWeather]);
-
-	useEffect(() => {
-		void searchCityByName(valueForFetch).then((data) => {
-			setCities(data);
-		});
-	}, [valueForFetch]);
-
+export const App = (): JSX.Element => {
 	return (
-		<div>
-			<input
-				type="text"
-				onChange={(e) => {
-					setValue(e.target.value);
-				}}
-				value={value}
-			/>
-			{cities?.results?.map((result) => (
-				<div key={result.id}>
-					<p>
-						{result.name}, {result.country}, {result.longitude}, {result.latitude}
-					</p>
-				</div>
-			))}
-		</div>
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
+			<Root />
+		</ThemeProvider>
 	);
 };

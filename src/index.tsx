@@ -1,4 +1,9 @@
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { ErrorBoundary } from '@components';
+import { store, persistor } from '@store';
 
 import { App } from './App';
 
@@ -11,8 +16,11 @@ if (container === null) {
 const root = createRoot(container);
 
 root.render(
-	<>
-		<App />
-		<h1>Hello111</h1>
-	</>
+	<Provider store={store}>
+		<PersistGate loading={null} persistor={persistor}>
+			<ErrorBoundary>
+				<App />
+			</ErrorBoundary>
+		</PersistGate>
+	</Provider>
 );

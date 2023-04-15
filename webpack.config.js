@@ -13,6 +13,12 @@ const paths = {
 module.exports = {
 	context: paths.src,
 
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+
 	entry: {
 		app: './index',
 	},
@@ -44,6 +50,10 @@ module.exports = {
 
 	module: {
 		rules: [
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+				loader: 'file-loader',
+			},
 			{
 				test: /\.svg$/,
 				use: ['@svgr/webpack'],
