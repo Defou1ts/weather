@@ -1,4 +1,4 @@
-export interface TodayWeather {
+export interface TodayWeatherResponse {
 	coord: Coord;
 	weather: WeatherElement[];
 	base: string;
@@ -13,6 +13,15 @@ export interface TodayWeather {
 	id: number;
 	name: string;
 	cod: number;
+}
+
+export interface TodayWeather {
+	iconCode: string;
+	description: string;
+	feelsLike: number;
+	temperature: number;
+	cityName: string;
+	id: number;
 }
 
 interface Clouds {

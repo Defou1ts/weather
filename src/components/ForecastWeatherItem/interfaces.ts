@@ -1,7 +1,13 @@
 import type { ReactNode } from 'react';
 
-export interface WeatherItemProps {
+export interface ForecastWeatherItemProps {
 	timestamp: string;
-	icon: ReactNode;
+	iconProps: ForecasWeatherItemIcon;
 	children: ReactNode;
+}
+
+export interface ForecasWeatherItemIcon {
+	src: string;
+	alt: string;
+	title: string;
 }

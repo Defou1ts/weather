@@ -1,12 +1,14 @@
 import { ForecastWeatherItemImageContainer, ForecastWeatherItemText, ForecastWeatherItemWrapper } from './styled';
 
-import type { WeatherItemProps } from './interfaces';
+import type { ForecastWeatherItemProps } from './interfaces';
 
-export const ForecastWeatherItem = ({ timestamp, icon, children }: WeatherItemProps) => {
+export const ForecastWeatherItem = ({ timestamp, iconProps, children }: ForecastWeatherItemProps) => {
 	return (
 		<ForecastWeatherItemWrapper>
 			<ForecastWeatherItemText>{timestamp}</ForecastWeatherItemText>
-			<ForecastWeatherItemImageContainer>{icon}</ForecastWeatherItemImageContainer>
+			<ForecastWeatherItemImageContainer>
+				<img {...iconProps} />
+			</ForecastWeatherItemImageContainer>
 			{children}
 		</ForecastWeatherItemWrapper>
 	);

@@ -1,9 +1,9 @@
-export interface CitySearchResult {
-	results?: CityResult[];
+export interface CitySearchResponse {
+	results?: CityResponse[];
 	generationtime_ms: number;
 }
 
-export interface CityResult {
+export interface CityResponse {
 	id: number;
 	name: string;
 	latitude: number;
@@ -22,4 +22,13 @@ export interface CityResult {
 	admin1?: string;
 	admin2?: string;
 	admin3?: string;
+}
+
+export interface City {
+	id: number;
+	name: string;
+	country: string;
+	countryCode: string;
+	lat: number;
+	lon: number;
 }
