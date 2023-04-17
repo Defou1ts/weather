@@ -1,26 +1,12 @@
-import { useEffect } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
-
 import { ForecastWeatherItem, Spinner } from '@components';
 import { LOADING_STATUS, SPINNER_SIZE, weatherStatuses } from '@constants';
 import { getDayOfWeekLocaledStringDate } from '@utils';
-import { fetchDailyWeather, selectDailyWeather, selectDailyWeatherLoadingStatus, selectLocation } from '@store';
+import { useDailyWeather } from '@hooks';
 
 import { ForecastDailyWeatherText } from './styled';
 
 export const ForecastDailyWeather = () => {
-	const dailyWeather = useSelector(selectDailyWeather);
-	const dailyWeatherLoadingStatus = useSelector(selectDailyWeatherLoadingStatus);
-	const selectedLocation = useSelector(selectLocation);
-
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		if (selectedLocation !== null) {
-			dispatch(fetchDailyWeather(selectedLocation));
-		}
-	}, [selectedLocation]);
+	const { dailyWeather, dailyWeatherLoadingStatus } = useDailyWeather();
 
 	if (dailyWeatherLoadingStatus === LOADING_STATUS.LOADING) {
 		return <Spinner data-test-id="daily-weather-spinner" size={SPINNER_SIZE.LARGE} />;

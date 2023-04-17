@@ -1,26 +1,12 @@
-import { useEffect } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
-
 import { ForecastWeatherItem, Spinner } from '@components';
 import { LOADING_STATUS, SPINNER_SIZE, weatherStatuses } from '@constants';
 import { getCurrentHourlyDateByUnixTime, getHHMMLocaledStringDate } from '@utils';
-import { fetchHourlyWeather, selectHourlyWeather, selectHourlyWeatherLoadingStatus, selectLocation } from '@store';
+import { useHourlyWeather } from '@hooks';
 
 import { ForecastHourlyWeatherText, ForecastHourlyWeatherTitle } from './styled';
 
 export const ForecastHourlyWeather = () => {
-	const hourlyWeather = useSelector(selectHourlyWeather);
-	const hourlyWeatherLoadingStatus = useSelector(selectHourlyWeatherLoadingStatus);
-	const selectedLocation = useSelector(selectLocation);
-
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		if (selectedLocation !== null) {
-			dispatch(fetchHourlyWeather(selectedLocation));
-		}
-	}, [selectedLocation]);
+	const { hourlyWeather, hourlyWeatherLoadingStatus } = useHourlyWeather();
 
 	if (hourlyWeatherLoadingStatus === LOADING_STATUS.LOADING) {
 		return <Spinner size={SPINNER_SIZE.LARGE} />;
