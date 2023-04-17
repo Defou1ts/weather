@@ -9,7 +9,7 @@ export * from './ForecastWeather/forecastweather.component';
 export * from './ForecastWeatherItem/forecastweatheritem.component';
 export * from './ForecastWeatherSwitch/forecastweatherswitch.component';
 export * from './Root/root.component';
-export * from './SearchCity/searchcity.component';
+export * from './SearchCityForm/searchcityform.component';
 export * from './SearchCityList/searchcitylist.component';
 export * from './Spinner/spinner.component';
 export * from './TodayWeather/todayweather.component';
