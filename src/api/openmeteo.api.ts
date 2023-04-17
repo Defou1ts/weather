@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import type { CitySearchResult, DailyWeather, HourlyWeather } from '@interfaces';
+import type { CitySearchResponse, DailyWeatherResponse, HourlyWeatherResponse } from '@interfaces';
 
 import type { AxiosInstance } from 'axios';
 
@@ -16,7 +16,7 @@ const openMeteoApiInstance: AxiosInstance = axios.create({
 
 export const openMeteoApi = {
 	async getHourlyWeather(longitude: number, latitude: number) {
-		const { data } = await openMeteoApiInstance.get<HourlyWeather>('', {
+		const { data } = await openMeteoApiInstance.get<HourlyWeatherResponse>('', {
 			params: {
 				longitude,
 				latitude,
@@ -29,7 +29,7 @@ export const openMeteoApi = {
 	},
 
 	async getDailyWeather(longitude: number, latitude: number) {
-		const { data } = await openMeteoApiInstance.get<DailyWeather>('', {
+		const { data } = await openMeteoApiInstance.get<DailyWeatherResponse>('', {
 			params: {
 				longitude,
 				latitude,
@@ -41,7 +41,7 @@ export const openMeteoApi = {
 	},
 
 	async searchCityByName(city: string) {
-		const { data } = await axios.get<CitySearchResult>(`https://geocoding-${apiHost}/v1/search`, {
+		const { data } = await axios.get<CitySearchResponse>(`https://geocoding-${apiHost}/v1/search`, {
 			params: {
 				name: city,
 			},

@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { LOADING_STATUS } from '@constants';
-import type { Coord, DailyWeather } from '@interfaces';
+import type { Coord, DailyWeather, DailyWeatherResponse } from '@interfaces';
+import { transformDailyWeatherResponse } from '@utils';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 
@@ -20,8 +21,8 @@ export const dailyWeatherSlice = createSlice({
 	initialState,
 	reducers: {
 		fetchDailyWeather: (state, action: PayloadAction<Coord>) => {},
-		setDailyWeather: (state, action: PayloadAction<DailyWeather>) => {
-			state.weather = action.payload;
+		setDailyWeather: (state, action: PayloadAction<DailyWeatherResponse>) => {
+			state.weather = transformDailyWeatherResponse(action.payload);
 		},
 		setDailyLoadingStatus: (state, action: PayloadAction<LOADING_STATUS>) => {
 			state.loadingStatus = action.payload;

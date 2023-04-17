@@ -1,4 +1,4 @@
-export interface DailyWeather {
+export interface DailyWeatherResponse {
 	latitude: number;
 	longitude: number;
 	generationtime_ms: number;
@@ -8,6 +8,13 @@ export interface DailyWeather {
 	elevation: number;
 	daily_units: DailyUnits;
 	daily: Daily;
+}
+
+export interface DailyWeather {
+	weatherCodeList: number[];
+	temperatureMaxList: number[];
+	temperatureMinList: number[];
+	times: number[];
 }
 
 interface Daily {

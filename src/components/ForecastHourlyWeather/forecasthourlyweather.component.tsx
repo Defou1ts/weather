@@ -16,12 +16,12 @@ export const ForecastHourlyWeather = () => {
 		return null;
 	}
 
-	const { weathercode: weatherCodes, temperature_2m: temperature, time } = hourlyWeather.hourly;
+	const { temperatureList, weatherCodeList, timeList } = hourlyWeather;
 
 	return (
 		<>
-			{getCurrentHourlyDateByUnixTime(time).map((date, index) => {
-				const weatherCode = weatherCodes[index];
+			{getCurrentHourlyDateByUnixTime(timeList).map((date, index) => {
+				const weatherCode = weatherCodeList[index];
 
 				const { icon, description } = weatherStatuses[weatherCode];
 
@@ -33,7 +33,7 @@ export const ForecastHourlyWeather = () => {
 						icon={<img src={icon} alt={description} title={description} />}
 					>
 						<ForecastHourlyWeatherTitle data-test-id="hourly-weather-title">
-							{temperature[index].toFixed(0)}&#176;
+							{temperatureList[index].toFixed(0)}&#176;
 						</ForecastHourlyWeatherTitle>
 						<ForecastHourlyWeatherText>{description}</ForecastHourlyWeatherText>
 					</ForecastWeatherItem>

@@ -16,16 +16,12 @@ export const ForecastDailyWeather = () => {
 		return null;
 	}
 
-	const {
-		weathercode: weatherCodes,
-		temperature_2m_max: temperatureMax,
-		temperature_2m_min: temperatureMin,
-	} = dailyWeather.daily;
+	const { weatherCodeList, temperatureMaxList, temperatureMinList, times } = dailyWeather;
 
 	return (
 		<>
-			{dailyWeather?.daily.time.map((time, index) => {
-				const weatherCode = weatherCodes[index];
+			{times.map((time, index) => {
+				const weatherCode = weatherCodeList[index];
 
 				const dateOfDayOfWeek = new Date(time * 1000);
 				const { icon, description } = weatherStatuses[weatherCode];
@@ -40,9 +36,13 @@ export const ForecastDailyWeather = () => {
 							{description}
 						</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>Max:</ForecastDailyWeatherText>
-						<ForecastDailyWeatherText>{temperatureMax[index].toFixed(0)}&#176;</ForecastDailyWeatherText>
+						<ForecastDailyWeatherText>
+							{temperatureMaxList[index].toFixed(0)}&#176;
+						</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>Min:</ForecastDailyWeatherText>
-						<ForecastDailyWeatherText>{temperatureMin[index].toFixed(0)}&#176;</ForecastDailyWeatherText>
+						<ForecastDailyWeatherText>
+							{temperatureMinList[index].toFixed(0)}&#176;
+						</ForecastDailyWeatherText>
 					</ForecastWeatherItem>
 				);
 			})}
