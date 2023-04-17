@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectSearchCitiesLoadingStatus, selectCitySearchResult, setCurrentCity, setLocation } from '@store';
 import { LOADING_STATUS, SPINNER_SIZE } from '@constants';
 import { Button, Spinner } from '@components';
-import type { CityResult } from '@interfaces';
+import type { City } from '@interfaces';
 
 import { SearchCityListIemText, SearchCityListItemWrapper, SearchCityListWrapper } from './styled';
 
@@ -15,14 +15,14 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 	const searchCityLoadingStatus = useSelector(selectSearchCitiesLoadingStatus);
 	const searchCityResult = useSelector(selectCitySearchResult);
 
-	const handleSelectCity = (cityResult: CityResult) => () => {
-		dispatch(setCurrentCity(cityResult));
+	const handleSelectCity = (city: City) => () => {
+		dispatch(setCurrentCity(city));
 
-		const { longitude, latitude } = cityResult;
+		const { lon, lat } = city;
 		dispatch(
 			setLocation({
-				lon: longitude,
-				lat: latitude,
+				lon,
+				lat,
 			})
 		);
 		onClearInputValue();
@@ -38,15 +38,15 @@ export const SearchCityList = ({ onClearInputValue }: SeachCityListProps) => {
 
 	return (
 		<SearchCityListWrapper data-test-id="city-search-result-wrapper">
-			{searchCityResult?.results?.map((cityResult) => {
-				const { id, name, country, country_code: countryCode } = cityResult;
+			{searchCityResult?.map((city) => {
+				const { id, name, country, countryCode } = city;
 
 				return (
 					<SearchCityListItemWrapper key={id}>
 						<SearchCityListIemText>
 							{name}, {country}, {countryCode}
 						</SearchCityListIemText>
-						<Button onClick={handleSelectCity(cityResult)}>select</Button>
+						<Button onClick={handleSelectCity(city)}>select</Button>
 					</SearchCityListItemWrapper>
 				);
 			})}

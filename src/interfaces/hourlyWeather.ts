@@ -1,4 +1,4 @@
-export interface HourlyWeather {
+export interface HourlyWeatherResponse {
 	latitude: number;
 	longitude: number;
 	generationtime_ms: number;
@@ -8,6 +8,12 @@ export interface HourlyWeather {
 	elevation: number;
 	hourly_units: HourlyUnits;
 	hourly: Hourly;
+}
+
+export interface HourlyWeather {
+	weatherCodeList: number[];
+	temperatureList: number[];
+	timeList: number[];
 }
 
 interface Hourly {

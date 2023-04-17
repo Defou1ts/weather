@@ -10,7 +10,7 @@ export const Root = () => {
 	const todayWeather = useSelector(selectTodayWeather);
 
 	return (
-		<Layout background={getBackgroundByWeatherId(todayWeather?.weather[0].id)}>
+		<Layout background={getBackgroundByWeatherId(todayWeather?.id)}>
 			<ContentWrapper>
 				<Clock />
 				<SearchCity />

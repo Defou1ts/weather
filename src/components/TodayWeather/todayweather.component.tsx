@@ -13,22 +13,20 @@ export const TodayWeather = () => {
 		return null;
 	}
 
-	const { weather, main, name } = todayWeather;
-	const { icon, description } = weather[0];
-	const { feels_like: feelsLike, temp } = main;
+	const { iconCode, description, feelsLike, temperature, cityName } = todayWeather;
 
 	return (
 		<TodayWeatherWrapper data-test-id="today-weather-wrapper">
 			<TodayWeatherText data-test-id="today-weather-title">Today</TodayWeatherText>
-			<TodayWeatherText data-test-id="today-weather-text">{name}</TodayWeatherText>
+			<TodayWeatherText data-test-id="today-weather-text">{cityName}</TodayWeatherText>
 			<TodayWeatherImage
 				data-test-id="today-weather-image"
-				src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+				src={`https://openweathermap.org/img/wn/${iconCode}@2x.png`}
 				alt={description}
 				title={description}
 			/>
 			<TodayWeatherText>{description}</TodayWeatherText>
-			<TodayWeatherText>{temp.toFixed(0)}&#176;</TodayWeatherText>
+			<TodayWeatherText>{temperature.toFixed(0)}&#176;</TodayWeatherText>
 			<TodayWeatherText>feels like {feelsLike.toFixed(0)}&#176;</TodayWeatherText>
 		</TodayWeatherWrapper>
 	);

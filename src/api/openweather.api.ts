@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import type { TodayWeather } from '@interfaces';
+import type { TodayWeatherResponse } from '@interfaces';
 
 import type { AxiosInstance } from 'axios';
 
@@ -16,7 +16,7 @@ const openWeatherApiInstance: AxiosInstance = axios.create({
 
 export const openWeatherApi = {
 	async getTodayWeatherByCityName(city: string) {
-		const { data } = await openWeatherApiInstance.get<TodayWeather>('/weather', {
+		const { data } = await openWeatherApiInstance.get<TodayWeatherResponse>('/weather', {
 			params: {
 				q: city,
 			},
@@ -26,7 +26,7 @@ export const openWeatherApi = {
 	},
 
 	async getTodayWeatherByCoords(lon: number, lat: number) {
-		const { data } = await openWeatherApiInstance.get<TodayWeather>('/weather', {
+		const { data } = await openWeatherApiInstance.get<TodayWeatherResponse>('/weather', {
 			params: {
 				lat,
 				lon,
