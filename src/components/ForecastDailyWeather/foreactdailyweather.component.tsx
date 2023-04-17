@@ -54,9 +54,9 @@ export const ForecastDailyWeather = () => {
 							{description}
 						</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>Max:</ForecastDailyWeatherText>
-						<ForecastDailyWeatherText>{temperatureMax[index]}&#176;</ForecastDailyWeatherText>
+						<ForecastDailyWeatherText>{temperatureMax[index].toFixed(0)}&#176;</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>Min:</ForecastDailyWeatherText>
-						<ForecastDailyWeatherText>{temperatureMin[index]}&#176;</ForecastDailyWeatherText>
+						<ForecastDailyWeatherText>{temperatureMin[index].toFixed(0)}&#176;</ForecastDailyWeatherText>
 					</ForecastWeatherItem>
 				);
 			})}

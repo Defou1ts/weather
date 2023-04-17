@@ -47,7 +47,7 @@ export const ForecastHourlyWeather = () => {
 						icon={<img src={icon} alt={description} title={description} />}
 					>
 						<ForecastHourlyWeatherTitle data-test-id="hourly-weather-title">
-							{temperature[index]}&#176;
+							{temperature[index].toFixed(0)}&#176;
 						</ForecastHourlyWeatherTitle>
 						<ForecastHourlyWeatherText>{description}</ForecastHourlyWeatherText>
 					</ForecastWeatherItem>
