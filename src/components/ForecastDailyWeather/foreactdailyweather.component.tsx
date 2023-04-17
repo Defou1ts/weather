@@ -35,13 +35,11 @@ export const ForecastDailyWeather = () => {
 						<ForecastDailyWeatherText data-test-id="daily-weather-title">
 							{description}
 						</ForecastDailyWeatherText>
-						<ForecastDailyWeatherText>Max:</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>
-							{temperatureMaxList[index].toFixed(0)}&#176;
+							Max: {temperatureMaxList[index].toFixed(0)}&#176;
 						</ForecastDailyWeatherText>
-						<ForecastDailyWeatherText>Min:</ForecastDailyWeatherText>
 						<ForecastDailyWeatherText>
-							{temperatureMinList[index].toFixed(0)}&#176;
+							Min: {temperatureMinList[index].toFixed(0)}&#176;
 						</ForecastDailyWeatherText>
 					</ForecastWeatherItem>
 				);
