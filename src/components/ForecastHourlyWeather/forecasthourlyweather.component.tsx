@@ -23,14 +23,18 @@ export const ForecastHourlyWeather = () => {
 			{getCurrentHourlyDateByUnixTime(timeList).map((date, index) => {
 				const weatherCode = weatherCodeList[index];
 
-				const { icon, description } = weatherStatuses[weatherCode];
+				const { iconSrc, description } = weatherStatuses[weatherCode];
 
 				return (
 					<ForecastWeatherItem
 						data-test-id="hourly-weather-item"
 						key={date.getTime()}
 						timestamp={getHHMMLocaledStringDate(date)}
-						icon={<img src={icon} alt={description} title={description} />}
+						iconProps={{
+							src: iconSrc,
+							alt: description,
+							title: description,
+						}}
 					>
 						<ForecastHourlyWeatherTitle data-test-id="hourly-weather-title">
 							{temperatureList[index].toFixed(0)}&#176;

@@ -1,4 +1,4 @@
 export interface WeatherStatus {
-	icon: string;
+	iconSrc: string;
 	description: string;
 }

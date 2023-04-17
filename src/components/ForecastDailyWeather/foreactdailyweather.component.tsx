@@ -24,13 +24,17 @@ export const ForecastDailyWeather = () => {
 				const weatherCode = weatherCodeList[index];
 
 				const dateOfDayOfWeek = new Date(time * 1000);
-				const { icon, description } = weatherStatuses[weatherCode];
+				const { iconSrc, description } = weatherStatuses[weatherCode];
 
 				return (
 					<ForecastWeatherItem
 						key={time}
 						timestamp={getDayOfWeekLocaledStringDate(dateOfDayOfWeek)}
-						icon={<img src={icon} alt={description} title={description} />}
+						iconProps={{
+							src: iconSrc,
+							alt: description,
+							title: description,
+						}}
 					>
 						<ForecastDailyWeatherText data-test-id="daily-weather-title">
 							{description}
