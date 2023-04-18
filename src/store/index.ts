@@ -3,6 +3,7 @@ export * from './hooks';
 export * from './store';
 
 // Slices
+export * from './slices/calendar.slice';
 export * from './slices/city.slice';
 export * from './slices/dailyweather.slice';
 export * from './slices/forecastweather.slice';
@@ -18,6 +19,7 @@ export * from './sagas/index';
 export * from './sagas/todayweather.saga';
 
 // Selectors
+export * from './selectors/calendar.selector';
 export * from './selectors/city.selector';
 export * from './selectors/dailyweather.selector';
 export * from './selectors/forecastWeather.selector';
