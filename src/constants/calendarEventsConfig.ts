@@ -1,3 +1,5 @@
+import { getEndOfDayDate } from '@utils';
+
 export const calendarEventsConfig = {
 	calendarId: 'primary',
 	timeMin: new Date().toISOString(),
@@ -5,4 +7,5 @@ export const calendarEventsConfig = {
 	singleEvents: true,
 	maxResults: 10,
 	orderBy: 'startTime',
+	timeMax: getEndOfDayDate().toISOString(),
 };

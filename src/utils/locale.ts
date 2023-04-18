@@ -15,3 +15,13 @@ export const getDayOfWeekLocaledStringDate = (date: Date) => {
 export const getHHMMLocaledStringDate = (date: Date) => {
 	return date.toLocaleString('ru-RU', HHMMLocaleOptions);
 };
+
+export const getEndOfDayDate = (): Date => {
+	const endOfDayDate = new Date();
+
+	endOfDayDate.setHours(23);
+	endOfDayDate.setMinutes(59);
+	endOfDayDate.setSeconds(59);
+	endOfDayDate.setMilliseconds(999);
+	return endOfDayDate;
+};
