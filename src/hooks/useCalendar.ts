@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { gapi } from 'gapi-script';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { calendarApiConfig, calendarEventsConfig } from '@constants';
-import type { CalendarApiEventsResponse, CalendarEvent } from '@interfaces';
+import type { CalendarApiEventsResponse } from '@interfaces';
+import { selectCalendarAuth, selectCalendarEvents, setCalendarAuth, setCalendarEvents } from '@store';
 
 export const useCalendar = () => {
-	const [isAuth, setIsAuth] = useState<boolean>(false);
-	const [events, setEvents] = useState<CalendarEvent[]>([]);
+	const isAuth = useSelector(selectCalendarAuth);
+	const events = useSelector(selectCalendarEvents);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		gapi.load('client:auth2', () => {
@@ -18,19 +21,19 @@ export const useCalendar = () => {
 	const handleAuth = () => {
 		gapi.load('client:auth2', async () => {
 			await gapi.auth2.getAuthInstance().signIn();
-			setIsAuth(true);
+			dispatch(setCalendarAuth(true));
 
 			const response: CalendarApiEventsResponse = await gapi.client.calendar.events.list(calendarEventsConfig);
 			const events = response.result.items;
-			setEvents(events);
+			dispatch(setCalendarEvents(events));
 		});
 	};
 
 	const handleSignOut = () => {
 		gapi.load('client:auth2', async () => {
 			await gapi.auth2.getAuthInstance().signOut();
-			setIsAuth(false);
-			setEvents([]);
+			dispatch(setCalendarAuth(false));
+			dispatch(setCalendarEvents([]));
 		});
 	};
 

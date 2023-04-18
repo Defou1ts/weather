@@ -11,6 +11,7 @@ import dailyWeatherReducer from './slices/dailyweather.slice';
 import cityReducer from './slices/city.slice';
 import locationReducer from './slices/location.slice';
 import forecastWeatherReducer from './slices/forecastweather.slice';
+import calendarReducer from './slices/calendar.slice';
 
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
 	forecastWeather: forecastWeatherReducer,
 	city: cityReducer,
 	location: locationReducer,
+	calendar: calendarReducer,
 });
 
 const persistConfig = getPersistConfig({
